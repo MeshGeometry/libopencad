@@ -475,7 +475,7 @@ int CADHeader::addValue( short code, long julianday, long milliseconds )
     double seconds     = double( milliseconds ) / 1000;
     double unix        = ( double( julianday ) - 2440587.5 ) * 86400.0;
     time_t fullSeconds = static_cast<time_t>(unix + seconds);
-    return addValue( code, CADVariant( fullSeconds ) );
+    return addValue( code, CADVariant( (long)fullSeconds ) );
 }
 
 int CADHeader::getGroupCode( short code ) const
